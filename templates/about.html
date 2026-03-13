@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="../static/home.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"> -->
+</head>
+<body>
+    <header>
+        <div class="logo">Food <b style="color: #06c167 ;">Donate</b></div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="{{ url_for('home') }}" >Home</a></li>
+                <li><a href="#about" class="active" >About</a></li>
+                <li><a href="{{ url_for('contact_us') }}" >Contact</a></li>
+                <li><a href="{{ url_for('admin_login') }}" >Admin Login</a></li>
+                <li><a href="{{ url_for('register') }}" >Register</a></li>
+                <li><a href="{{ url_for('inquiry') }}" >Inquiry</a></li>
+              </ul>
+        </nav>
+    </header>
+    <script>
+        hamburger=document.querySelector(".hamburger");
+        hamburger.onclick =function(){
+            navBar=document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        }
+    </script>
+    <style>
+     
+        .coverc{
+          width: 100%;
+          height: 400px;
+          background:url('img/about3.jpg')no-repeat;
+          background-size: cover;
+          display: grid;
+          place-items:center;
+          padding-top: 8rem;
+ 
+        } 
+        .title{
+          font-size: 38px;
+          text-align: center;
+          align-items: center; 
+        }
+       
+        .para p{
+            font-size: 23px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+          @media (max-width: 767px) {
+            .para p{
+               font-size: 16px;
+               /* margin-left: 10px; */
+              }
+            #pptslide{
+                height: 200px;
+                width: 300px;
+
+            }
+            #map{
+              height: 200px;
+                width: 300px;
+
+
+            }
+            #overview{
+              height: 200px;
+                width: 300px;
+            }
+            
+        .title{
+          font-size: 28px;
+          margin: 10px;
+          text-align: center;
+          align-items: center; 
+        }
+      }
+    </style>
+    <br>
+        <p class="heading">About us</p>
+       
+      <div class="para">
+    
+        <p>At Food Waste Management, we are committed to combating food waste and promoting sustainability. Our vision is to reduce food waste globally by redistributing excess food and raising awareness about the environmental impacts of food waste.</p>
+      </div>
+      <br>
+      <div class="wrapper">
+        <div class="box"><img src="../static/img/img3.jpg" alt=""></div>
+        <div class="box"><img src="../static/img/img6.jpg" alt=""></div>
+        <div class="box"><img src="../static/img/img7.jpg" alt=""></div>
+      </div>
+      
+      <br>
+      <footer class="footer">
+        <div class="footer-left col-md-4 col-sm-6">
+          <p class="about">
+            <span> About us</span>The basic concept of this project  Food Waste Management is to collect the excess/leftover  food from donors such as hotels, restaurants, marriage halls , etc and distribute to  the  needy people .
+     </p>
+        
+        </div>
+        <div class="footer-center col-md-4 col-sm-6">
+          <div>
+            <p><span> Contact</span> </p>
+            
+          </div>
+          <div>
+        
+            <p> (+91) 70586 16389</p>
+            
+          </div>
+          <div>
+            
+            <p><a href="#"> Fooddonate@gmail.com</a></p>
+          </div>
+          
+        </div>
+        <div class="footer-right col-md-4 col-sm-6">
+          <h2> Food<span> Donate</span></h2>
+  
+          <p class="menu">
+            <a href="{{ url_for('home') }}"> Home</a> |
+            <a href="{{ url_for('about') }}"> About</a> |
+            <a href="{{ url_for('contact_us') }}"> Contact</a>
+          </p>
+          <p class="name"> Food Donate &copy 2024</p>
+        </div>
+      </footer>
+</body>
+</html>

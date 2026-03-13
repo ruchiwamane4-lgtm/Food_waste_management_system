@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            border-bottom: 1px solid #34495e;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background: white;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .dashboard-cards {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            flex: 1;
+            background: #1abc9c;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Food Donate Admin</h2>
+            <ul>
+                <li><a href="admin_dashboard.html">Dashboard</a></li>
+                <li><a href="view_donations.html">Donations</a></li>
+                <li><a href="view_report.html">Reports</a></li>
+                <li><a href="{{ url_for('home') }}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Reports</h1>
+                <p>Welcome, Admin</p>
+            </div>
+           
+            <h2>Recent Reports</h2>
+            <table>
+                <tr>
+                    <th>Donor</th>
+                    <th>Food Item</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Michael Brown</td>
+                    <td>Vegetables</td>
+                    <td>15kg</td>
+                    <td>Delivered</td>
+                </tr>
+                <tr>
+                    <td>Emily White</td>
+                    <td>Milk</td>
+                    <td>10 Liters</td>
+                    <td>Pending</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

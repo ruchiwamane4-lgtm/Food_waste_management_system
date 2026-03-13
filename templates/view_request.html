@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Donations - Food Waste Management</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    padding: 20px;
+}
+
+.sidebar .logo h2 {
+    color: #ecf0f1;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar ul.nav {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul.nav li {
+    margin: 20px 0;
+}
+
+.sidebar ul.nav li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.sidebar ul.nav li a:hover {
+    background-color: #34495e;
+}
+
+.sidebar ul.nav li a.active {
+    background-color: #06C167;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-title h1 {
+    color: #2c3e50;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Donations List Section */
+.donations-list {
+    margin-top: 40px;
+}
+
+.donations-list h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.donations-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.donations-list table th,
+.donations-list table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.donations-list table th {
+    background-color: #34495e;
+    color: white;
+}
+
+.donations-list table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.donations-list .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.donations-list .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Add New Donation Section */
+.add-donation {
+    margin-top: 40px;
+}
+
+.add-donation h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.add-donation form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-donation label {
+    margin: 10px 0 5px;
+    color: #34495e;
+}
+
+.add-donation input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-donation .submit-btn {
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-donation .submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .donations-list table th,
+    .donations-list table td {
+        font-size: 14px;
+    }
+
+    .add-donation form {
+        width: 100%;
+    }
+}
+
+
+   .container {
+            width: 80%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .pending { color: orange; }
+        .accepted { color: green; }
+        .rejected { color: red; }
+
+
+</style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <h2>Food Donate <br>User</h2>
+        </div>
+        <ul class="nav">
+            <li><a href="{{ url_for('user_dashboard') }}" >Dashboard</a></li>
+            <li><a href="{{ url_for('donate') }}" >Donations</a></li>
+            <li><a href="{{ url_for('view_request')}}" class="active">View Request</a></li>
+            <li><a href="{{ url_for('home')}}">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <div class="header-title">
+                <h1>View Requests</h1>
+            </div>
+        </header>
+  
+        <div class="container">
+            <h2>My Food Donation Requests</h2>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Food Name</th>
+                        <th>Meal Type</th>
+                        <th>Quantity (kg)</th>
+                        <th>Pickup Date</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for request in requests %}
+                    <tr>
+                        <td>{{ request.fullname }}</td>
+                        <td>{{ request.foodname }}</td>
+                        <td>{{ request.meal }}</td>
+                        <td>{{ request.quantity }}</td>
+                        <td>{{ request.pickupdate }}</td>
+                        <td>{{ request.address }}</td>
+                        <td class="{% if request.status == 'Accepted' %}accepted{% elif request.status == 'Rejected' %}rejected{% else %}pending{% endif %}">
+                            {{ request.status }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+
+</body>
+</html>

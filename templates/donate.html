@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Donations - Food Waste Management</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    padding: 20px;
+}
+
+.sidebar .logo h2 {
+    color: #ecf0f1;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar ul.nav {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul.nav li {
+    margin: 20px 0;
+}
+
+.sidebar ul.nav li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.sidebar ul.nav li a:hover {
+    background-color: #34495e;
+}
+
+.sidebar ul.nav li a.active {
+    background-color: #06C167;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-title h1 {
+    color: #2c3e50;
+}
+
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Donations List Section */
+.donations-list {
+    margin-top: 40px;
+}
+
+.donations-list h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.donations-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.donations-list table th,
+.donations-list table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.donations-list table th {
+    background-color: #34495e;
+    color: white;
+}
+
+.donations-list table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.donations-list .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.donations-list .delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Add New Donation Section */
+.add-donation {
+    margin-top: 40px;
+}
+
+.add-donation h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.add-donation form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-donation label {
+    margin: 10px 0 5px;
+    color: #34495e;
+}
+
+.add-donation input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-donation .submit-btn {
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-donation .submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .donations-list table th,
+    .donations-list table td {
+        font-size: 14px;
+    }
+
+    .add-donation form {
+        width: 100%;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+
+body{
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* font-family: 'Open Sans', sans-serif; */
+    
+     /* outline: none; */
+  font-family: 'Poppins', sans-serif;
+
+}
+.logo{
+    text-align: center;
+    font-size: 22px;
+    color:black;
+  }
+
+
+.regform{ 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  border: 1px solid  rgba(0,0,0,0.05);
+  background: white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  
+
+    width:430px;
+    background-color:white;
+    padding: 20px 20px 20px 20px;
+
+
+    margin: 20px auto ;
+    color:black;
+  
+    font-size: 20px;
+    border-radius: 10px ;
+    /* border: 1px solid black; */
+    
+}
+.regformf{
+  width:480px;
+    background-color:white;
+
+    margin: 20px auto ;
+    color:black;
+    padding: 20px 20px 20px 20px;
+    font-size: 20px;
+    border-radius: 10px ;
+    /* border: 1px solid black; */
+    
+}
+
+
+ #heading{
+    margin-top:0;
+    color:black;
+    text-align: center;
+    font-size: 28px;
+    
+}
+
+.input input{
+    width:100%;
+    font-size:20px;
+    border:.5px solid #63707E;
+    
+    border-radius: 6px;
+    padding:14px 15px;
+    box-sizing:border-box;
+    margin:5px 0px 15px;
+    color:black;
+}
+
+input:focus{
+    background-color:white;
+}
+
+button{
+    background-color:#06C167;
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: .5px solid #06C167;
+    width: 100%;
+    
+}
+
+.radio input{
+    transform: scale(1.5);
+
+}
+button:hover{
+    /* background-color:white; */
+    color: #eeeeee;
+    transform: scale(.98);
+
+  
+}
+.regform .signin-up{
+    font-size: 20px; 
+    text-align: center;
+}
+.password{
+  position: relative;
+}
+.password input{
+  width:100%;
+  font-size:20px;
+  border:.5px solid #63707E;
+  
+  border-radius: 6px;
+  padding:14px 15px;
+  box-sizing:border-box;
+  margin:5px 0px 15px;
+  color:black;
+  
+}
+
+@media (max-width: 767px) {
+
+
+    .regform{ 
+      /* position: absolute;
+      top: 50%;
+      left: 50%; */
+    
+        width: 300px;
+        background-color:white;
+
+    
+        margin: 40px auto ;
+        color: black;
+        padding: 20px 20px 20px 20px;
+        font-size: 15px;
+        /* border-radius: 30px ; */
+        /* border: 1px solid black; */
+        
+    }
+    .regformf{
+      width: 300px;
+        background-color:white;
+
+    
+        margin: 40px auto ;
+        color:black;
+        padding: 20px 20px 20px 20px;
+        font-size: 15px;
+        /* border-radius: 30px ; */
+        /* border: 1px solid black; */
+        
+
+    }
+    .logo{
+        text-align: center;
+        font-size: 18px;
+        color:black;
+      }
+      #heading{
+        margin-top:0;
+        color:black;
+        text-align: center;
+        font-size: 22px;
+        
+    }
+ 
+    button{
+      font-size: 16px;
+    }
+    .input input{
+        font-size: 16px;
+    }
+    .radio input{
+        transform: scale(1.1);
+    }
+    .image-radio-group img{
+        width: 300px;
+      }
+}
+
+
+.error {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #d93025;
+  
+}
+
+</style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <h2>Food Donate User</h2>
+        </div>
+        <ul class="nav">
+            <li><a href="{{ url_for('user_dashboard') }}" >Dashboard</a></li>
+            <li><a href="{{ url_for('donate') }}" class="active">Donations</a></li>
+            <li><a href="{{ url_for('view_request')}}">View Request</a></li>
+            <li><a href="{{ url_for('home')}}">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <div class="header-title">
+                <h1>My Donations</h1>
+            </div>
+        </header>
+  
+    
+    <div class="container">
+        <div class="regformf" >
+          <form method="POST" action="/donate">
+        <p class="logo"><b style="color: black; ">Donate Food</b></p> 
+        <br>
+
+        <div class="input">
+            <label for="fullname" > Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required/>
+            </div>
+
+          <div class="input">
+          <label for="foodname" > Food Name:</label>
+          <input type="text" id="foodname" name="foodname" required/>
+          </div>
+    
+        <div class="radio">
+        <label for="meal" >Meal type :</label> 
+        <br><br>
+
+        <input type="radio" name="meal" id="veg" value="veg" required/>
+        <label for="veg" style="padding-right: 40px;">Veg</label>
+        <input type="radio" name="meal" id="Non-veg" value="Non-veg" >
+        <label for="Non-veg">Non-veg</label>
+        </div>
+        <br>
+
+    
+        <div class="input">
+        <label for="quantity">Quantity:(in kg)</label>
+        <input type="text" id="quantity" name="quantity" required/>
+        </div>
+
+        <div class="input">
+          <label for="pickupdate" > Pickup Date:</label>
+          <input type="date" id="pickupdate" name="pickupdate" required/>
+        </div>
+
+       <div class="input">
+          <label for="address" > Address:</label>
+          <input type="text" id="address" name="address" required/>
+        </div>
+      
+        <div class="btn">
+            <button type="submit" name="submit"> submit</button>
+     
+        </div>
+     </form>
+     </div>
+     {% if success %}
+        <center><p style="color: green; font-weight: bold;">Donation message has been successfully submitted!</p></center>
+    {% endif %}
+   </div>
+
+</body>
+</html>
